@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Phone Hunter</title>
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@3.6.2/dist/full.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://kit.fontawesome.com/65fd4e7cff.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <style>
+        .primary {
+            color: #100F0F;
+
+        }
+
+        .secondary {
+            color: #706F6F;
+        }
+
+        .bg-color {
+            background-color: #0D6EFD;
+        }
+    </style>
+</head>
+
+<body>
+    <header class="max-w-6xl mx-auto">
+        <nav class="flex justify-between items-center px-2 pt-6">
+            <h4 class="secondary text-sm font-bold">Hot Gadgets</h4>
+            <button class="bg-color text-white text-sm font-semibold px-4 py-2 rounded">Sign Up</button>
+        </nav>
+        <div class="banner my-10 text-center">
+            <h2 class="primary font-bold text-4xl ">Apple Iphone 13 Pro Max</h2>
+            <p class="secondary text-sm max-w-xl mx-auto my-6">There are many variations of passages of Lorem Ipsum
+                available, but the majority have suffered alteration in some form, by injected humou.</p>
+            <button class="bg-color text-white text-sm font-semibold px-4 py-2 rounded">Buy Now</button>
+            <div class="banner-img grid grid-cols-3 items-baseline max-w-3xl mx-auto my-10">
+                <img class="w-10/12 ml-10" src="./images/pngwing 2.png" alt="">
+                <img src="./images/pngwing 1.png" alt="">
+                <img class="w-10/12 " src="./images/pngwing 2.png" alt="">
+            </div>
+        </div>
+    </header>
+
+    <main class="max-w-6xl mx-auto">
+        <section class="text-center">
+            <h3 class="primary text-2xl font-bold">Search your phone</h3>
+            <div class="input-field ">
+                <input id="searchValue"
+                    class="bg-[#100f0f] bg-opacity-5 text-sm  py-2 px-3 w-72 md:w-96   my-5 rounded-md" type="text"
+                    placeholder="  Search your phone">
+                <button onclick="handlePhone()"
+                    class="bg-color text-white text-sm font-semibold px-4 py-2 rounded">Search</button>
+            </div>
+        </section>
+
+        <div id="spin" class="spinner text-center hidden my-52">
+            <span class="loading loading-bars loading-lg"></span>
+        </div>
+
+        <div id="no-data" class="hidden  my-16">
+            <h3 class="text-4xl font-extrabold text-black text-center"> 'No Data Found' </h3>
+        </div>
+
+        <section class="mb-14">
+            <div id="display " class="grid grid-cols-1 px-6 md:grid-cols-2 md:px-8 lg:grid-cols-3 lg:px-0 gap-4 py-8">
+            </div>
+            <div class="text-center ">
+                <button onclick="showAllHandle()" id="btn-showAll"
+                    class="bg-color hidden text-white text-sm font-semibold px-4 py-2 rounded mt-4 ">Show All</button>
+            </div>
+            <!-- Open the modal using ID.showModal() method -->
+            <dialog id="my_modal_5" class="modal modal-bottom sm:modal-middle ">
+                <form method="dialog" class="modal-box">
+                    <div id="modal-details" class="text-center">
+                </form>
+            </dialog>
+        </section>
+    </main>
+
+    <footer class="bg-[#0d6efd] bg-opacity-5">
+        <div class=" max-w-2xl lg:max-w-4xl mx-auto py-12">
+            <div class="flex flex-col text-center md:flex-row md:text-left justify-between items-center py-8">
+                <div>
+                    <h4 class="primary font-bold text-3xl">Hot Gadgets</h4>
+                    <p class="secondary text-sm mt-3">You can definitely work.</p>
+                </div>
+                <div class="flex justify-around items-center gap-4 mt-4 md:mt-0">
+                    <div class="text-xl ">
+                        <i class="fa-brands fa-facebook-f cursor-pointer " style="color: #1669f8;"></i>
+                        <i class="fa-brands fa-twitter mx-2 cursor-pointer" style="color: #075ced;"></i>
+                        <i class="fa-brands fa-square-instagram cursor-pointer" style="color: #f863b2;"></i>
+                    </div>
+                    <button class="bg-color text-white text-sm font-semibold px-4 py-2 rounded">Join Premium</button>
+                </div>
+            </div>
+            <hr>
+            <div
+                class="grid grid-cols-2 gap-10 pl-6 md:gap-0 md:pl-0    md:flex md:justify-between text-base-content my-8">
+                <div class="grid grid-rows-5 gap-1">
+                    <a class="link link-hover">Product</a>
+                    <a class="link link-hover">Browse jobs</a>
+                    <a class="link link-hover">Remote jobs </a>
+                    <a class="link link-hover">Startup jobs</a>
+                    <a class="link link-hover">Company jobs</a>
+                </div>
+                <div class="grid grid-rows-5 gap-1">
+                    <a class="link link-hover">Popular</a>
+                    <a class="link link-hover">UIUX Design</a>
+                    <a class="link link-hover">Product Design </a>
+                    <a class="link link-hover">Front-End Developer</a>
+                    <a class="link link-hover">Back-End Developer</a>
+                </div>
+
+                <div class="grid grid-rows-5 gap-1">
+                    <a class="link link-hover">Resource</a>
+                    <a class="link link-hover">Faq</a>
+                    <a class="link link-hover">Support</a>
+                    <a class="link link-hover">Policy </a>
+                    <a class="link link-hover">Terms of Service</a>
+                </div>
+
+                <div class="grid grid-rows-5 gap-1">
+                    <a class="link link-hover">Company </a>
+                    <a class="link link-hover">About Us</a>
+                    <a class="link link-hover">Contact Us</a>
+                    <a class="link link-hover">Career Tips</a>
+                    <a class="link link-hover">Careers</a>
+                </div>
+    </footer>
+    <script src="./js/index.js"></script>
+</body>
+
+</html>
